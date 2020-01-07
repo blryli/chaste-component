@@ -1,15 +1,15 @@
 name: GitHub Actions Build and Deploy Demo
 on: [push]
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Deploy
+    - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v2
-      with:
+      env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: docs
